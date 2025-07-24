@@ -39,3 +39,23 @@ This project uses the "Sentiment140" dataset, which contains 1.6 million tweets 
 - scikit-learn
 - nltk
 - re
+
+## Model Performance and Insights
+
+The model was trained on 80% of the dataset and evaluated on the remaining 20%.
+
+- **Test Accuracy:** **`77.7%`**
+- **Training Accuracy:** **`79.9%`**
+
+The close alignment between the training and test scores indicates that the model generalizes well without significant overfitting.
+
+### Technical Details
+
+- **Dataset:** The model was trained on the **Sentiment140** dataset, which is perfectly balanced with **1.6 million tweets** (800,000 positive and 800,000 negative).
+- **Preprocessing Pipeline:** Each tweet was processed by:
+    1.  Removing mentions, links, and all non-alphabetic characters.
+    2.  Converting the text to lowercase.
+    3.  Filtering out common English stopwords using NLTK.
+    4.  Applying the **Porter Stemmer** to reduce words to their root form.
+- **Feature Engineering:** The cleaned text was transformed into numerical data using `TfidfVectorizer`, resulting in a vocabulary of over **460,000 unique features (word stems)**.
+- **Classifier:** A **Logistic Regression** model from Scikit-learn was used for the final sentiment classification.
